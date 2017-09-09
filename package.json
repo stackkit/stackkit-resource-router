@@ -4,7 +4,7 @@
   "description": "A resource router for express",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha './test/unit-test.js' -S"
   },
   "repository": {
     "type": "git",
@@ -15,10 +15,16 @@
     "resource-router",
     "htpp"
   ],
-  "author": "Lars van Kelef <lars@buildcode.nl> (http://stackkit.io)",
+  "author": "Lars van Kleef <lars@buildcode.nl> (http://stackkit.io)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/stackkit/stackkit-resource-router/issues"
   },
-  "homepage": "https://github.com/stackkit/stackkit-resource-router#readme"
+  "homepage": "https://github.com/stackkit/stackkit-resource-router#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "express": "^4.15.4",
+    "mocha": "^3.5.0"
+  }
 }

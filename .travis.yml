@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "0.10"
+  - "0.12"
+  - "1.8"
+  - "2.5"
+  - "3.3"
+  - "4.8"
+  - "5.12"
+  - "6.11"
+  - "7.10"
+  - "8.0"
+sudo: false
+cache:
+  directories:
+    - node_modules
+before_install:
+  - "npm rm --save-dev connect-redis"
+  - "test ! -d node_modules || npm prune"
+  - "test ! -d node_modules || npm rebuild"
+script:
+  - "npm test"

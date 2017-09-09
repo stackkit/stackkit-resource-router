@@ -1,3 +1,4 @@
+const application = ''
 const resoureces = ['index', 'store', 'show', 'update', 'destroy']
 const http = {
   'index': 'get',
@@ -14,14 +15,13 @@ const resourceRouter = {
   resource: function (url, controller) {
     resoureces.forEach(resource => {
       if (controller.hasOwnProperty(resource)) {
-        this.application.route(routeUriTransformer(url, resource))[http[resource]](controller[resource])
+        this.application.route(this.routeUriTransformer(url, resource))[http[resource]](controller[resource])
       }
     })
+  },
+  routeUriTransformer: function(url, resource) {
+    return ['show', 'update', 'destroy'].includes(resource) ? url + '/:id' : url;
   }
-}
-
-function routeUriTransformer(url, resource) {
-  return ['show', 'update', 'destroy'].includes(resource) ? url + '/:id' : url;
 }
 
 module.exports = resourceRouter
