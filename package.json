@@ -1,0 +1,24 @@
+{
+  "name": "stackkit-resource-router",
+  "version": "1.0.0",
+  "description": "A resource router for express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stackkit/stackkit-resource-router.git"
+  },
+  "keywords": [
+    "express",
+    "resource-router",
+    "htpp"
+  ],
+  "author": "Lars van Kelef <lars@buildcode.nl> (http://stackkit.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stackkit/stackkit-resource-router/issues"
+  },
+  "homepage": "https://github.com/stackkit/stackkit-resource-router#readme"
+}
