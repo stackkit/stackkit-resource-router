@@ -1,14 +1,14 @@
-const express = require('express')
-const chai = require("chai")
-const chaiHttp = require('chai-http')
+var express = require('express')
+var chai = require("chai")
+var chaiHttp = require('chai-http')
 
 chai.use(chaiHttp)
 
-describe("Acceptance test", () => {
-  let app = ''
-  let router = ''
+describe("Acceptance test", function () {
+  var app = ''
+  var router = ''
 
-  beforeEach("Create new instace", () => {
+  beforeEach("Create new instace", function () {
     app = express()
     router = require('../index.js')
     router.use(app)
@@ -16,7 +16,7 @@ describe("Acceptance test", () => {
     app.listen(3000)
   })
 
-  it("Binds a new resource to the app", () => {
+  it("Binds a new resource to the app", function () {
     router.resource('/test', require('./controller/testController.js'))
   })
 
@@ -30,7 +30,7 @@ describe("Acceptance test", () => {
     });
   })
 
-  it("Shoud return a json respose on the store resource", () => {
+  it("Shoud return a json respose on the store resource", function () {
     chai.request(app)
     .post('/test')
     .end(function(err, res) {
@@ -40,7 +40,7 @@ describe("Acceptance test", () => {
     });
   })
 
-  it("Shoud return a json respose on the show resource", () => {
+  it("Shoud return a json respose on the show resource", function () {
     chai.request(app)
     .get('/test/1')
     .end(function(err, res) {
@@ -51,7 +51,7 @@ describe("Acceptance test", () => {
     });
   })
 
-  it("Shoud return a json respose on the update resource", () => {
+  it("Shoud return a json respose on the update resource", function () {
     chai.request(app)
     .put('/test/1')
     .end(function(err, res) {
@@ -62,7 +62,7 @@ describe("Acceptance test", () => {
     });
   })
 
-  it("Shoud return a json respose on the destroy resource", () => {
+  it("Shoud return a json respose on the destroy resource", function () {
     chai.request(app)
     .delete('/test/1')
     .end(function(err, res) {

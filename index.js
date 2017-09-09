@@ -1,6 +1,6 @@
-const application = ''
-const resoureces = ['index', 'store', 'show', 'update', 'destroy']
-const http = {
+var application = ''
+var resoureces = ['index', 'store', 'show', 'update', 'destroy']
+var http = {
   'index': 'get',
   'store': 'post',
   'show': 'get',
@@ -8,7 +8,7 @@ const http = {
   'destroy': 'delete'
 }
 
-const resourceRouter = {
+var resourceRouter = {
   use: function (app) {
     this.application = app
   },
@@ -20,7 +20,13 @@ const resourceRouter = {
     })
   },
   routeUriTransformer: function(url, resource) {
-    return ['show', 'update', 'destroy'].includes(resource) ? url + '/:id' : url;
+    var resoureces = ['show', 'update', 'destroy']
+
+    if (resoureces.indexOf(resource) === -1) {
+      return url
+    }
+
+    return url + '/:id'
   }
 }
 
