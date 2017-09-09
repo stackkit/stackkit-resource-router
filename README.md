@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/stackkit/stackkit-resource-router.svg?branch=master)](https://travis-ci.org/stackkit/stackkit-resource-router)
+
 # stackkit-resource-router
 stackkit resource router for express
 
