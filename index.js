@@ -13,11 +13,11 @@ var resourceRouter = {
     this.application = app
   },
   resource: function (url, controller) {
-    resoureces.forEach(resource => {
+    resoureces.forEach(function(resource){
       if (controller.hasOwnProperty(resource)) {
         this.application.route(this.routeUriTransformer(url, resource))[http[resource]](controller[resource])
       }
-    })
+    }.bind(this))
   },
   routeUriTransformer: function(url, resource) {
     var resoureces = ['show', 'update', 'destroy']
