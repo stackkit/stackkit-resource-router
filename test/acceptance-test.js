@@ -20,10 +20,10 @@ describe("Acceptance test", function () {
     router.resource('/test', require('./controller/testController.js'))
   })
 
-  it("Shoud return a json respose on the index resource", () => {
+  it("Shoud return a json respose on the index resource", function () {
     chai.request(app)
     .get('/test')
-    .end(function(err, res) {
+    .end(function (err, res) {
       expect(res).to.have.status(200);
       expect(res).to.be.json;
       expect(res.body.succes).to.be.equal(true);
@@ -33,7 +33,7 @@ describe("Acceptance test", function () {
   it("Shoud return a json respose on the store resource", function () {
     chai.request(app)
     .post('/test')
-    .end(function(err, res) {
+    .end(function (err, res) {
       expect(res).to.have.status(200);
       expect(res).to.be.json;
       expect(res.body.succes).to.be.equal(true);
@@ -43,7 +43,7 @@ describe("Acceptance test", function () {
   it("Shoud return a json respose on the show resource", function () {
     chai.request(app)
     .get('/test/1')
-    .end(function(err, res) {
+    .end(function (err, res) {
       expect(res).to.have.status(200);
       expect(res).to.be.json;
       expect(res.body.succes).to.be.equal(true);
@@ -54,7 +54,7 @@ describe("Acceptance test", function () {
   it("Shoud return a json respose on the update resource", function () {
     chai.request(app)
     .put('/test/1')
-    .end(function(err, res) {
+    .end(function (err, res) {
       expect(res).to.have.status(200);
       expect(res).to.be.json;
       expect(res.body.succes).to.be.equal(true);
@@ -65,7 +65,7 @@ describe("Acceptance test", function () {
   it("Shoud return a json respose on the destroy resource", function () {
     chai.request(app)
     .delete('/test/1')
-    .end(function(err, res) {
+    .end(function (err, res) {
       expect(res).to.have.status(200);
       expect(res).to.be.json;
       expect(res.body.succes).to.be.equal(true);
