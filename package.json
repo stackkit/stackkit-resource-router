@@ -13,6 +13,7 @@
   "keywords": [
     "express",
     "resource-router",
+    "rest-full",
     "htpp"
   ],
   "author": "Lars van Kleef <lars@buildcode.nl> (http://stackkit.io)",

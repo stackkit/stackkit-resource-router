@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/stackkit/stackkit-resource-router.svg?branch=master)](https://travis-ci.org/stackkit/stackkit-resource-router)
 
 # stackkit-resource-router
-stackkit resource router for express
+A resource router for express. This package will automatically create all the routes for a restful application.
 
 ## Installation
 
@@ -18,7 +18,7 @@ const app = Express()
 const router = require('stackkit-resource-router')
 
 router.use(app)
-router.resource('/test', testController)
+router.resource('/test', require('./testController'))
 
 app.listen(3000)
 ```
