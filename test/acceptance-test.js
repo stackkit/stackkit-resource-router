@@ -1,75 +1,86 @@
-var express = require('express')
 var chai = require("chai")
 var chaiHttp = require('chai-http')
+var app = require('./server')
 
 chai.use(chaiHttp)
 
 describe("Acceptance test", function () {
-  var app = ''
   var router = ''
 
   beforeEach("Create new instace", function () {
-    app = express()
-    router = require('../index.js')
-    router.use(app)
-
-    app.listen(3000)
+    this.router = require('../index.js')
+    this.router.use(app)
   })
 
   it("Binds a new resource to the app", function () {
-    router.resource('/test', require('./controller/testController.js'))
+    this.router.resource('/test', require('./controller/testController.js'))
   })
 
-  it("Shoud return a json respose on the index resource", function () {
+  it("Shoud return a json respose on the index resource", function (done) {
     chai.request(app)
     .get('/test')
-    .end(function (err, res) {
-      expect(res).to.have.status(200);
-      expect(res).to.be.json;
-      expect(res.body.succes).to.be.equal(true);
+    .then(function (res) {
+      chai.expect(res).to.have.status(200);
+      chai.expect(res).to.be.json;
+      chai.expect(res.body.succes).to.be.equal(true);
+      done()
+    }).catch(function (err) {
+      done(new Error(err))
     });
   })
 
-  it("Shoud return a json respose on the store resource", function () {
+  it("Shoud return a json respose on the store resource", function (done) {
     chai.request(app)
     .post('/test')
-    .end(function (err, res) {
-      expect(res).to.have.status(200);
-      expect(res).to.be.json;
-      expect(res.body.succes).to.be.equal(true);
+    .then(function (res) {
+      chai.expect(res).to.have.status(200);
+      chai.expect(res).to.be.json;
+      chai.expect(res.body.succes).to.be.equal(true);
+      done()
+    }).catch(function (err) {
+      done(new Error(err))
     });
   })
 
-  it("Shoud return a json respose on the show resource", function () {
+  it("Shoud return a json respose on the show resource", function (done) {
     chai.request(app)
     .get('/test/1')
-    .end(function (err, res) {
-      expect(res).to.have.status(200);
-      expect(res).to.be.json;
-      expect(res.body.succes).to.be.equal(true);
-      expect(res.body.id).to.be.equal(1);
+    .then(function (res) {
+      chai.expect(res).to.have.status(200);
+      chai.expect(res).to.be.json;
+      chai.expect(res.body.succes).to.be.equal(true);
+      chai.expect(res.body.id).to.be.equal('1');
+      done()
+    }).catch(function (err) {
+      done(new Error(err))
     });
   })
 
-  it("Shoud return a json respose on the update resource", function () {
+  it("Shoud return a json respose on the update resource", function (done) {
     chai.request(app)
     .put('/test/1')
-    .end(function (err, res) {
-      expect(res).to.have.status(200);
-      expect(res).to.be.json;
-      expect(res.body.succes).to.be.equal(true);
-      expect(res.body.id).to.be.equal(1);
+    .then(function (res) {
+      chai.expect(res).to.have.status(200);
+      chai.expect(res).to.be.json;
+      chai.expect(res.body.succes).to.be.equal(true);
+      chai.expect(res.body.id).to.be.equal('1');
+      done()
+    }).catch(function(err) {
+      done(new Error(err))
     });
   })
 
-  it("Shoud return a json respose on the destroy resource", function () {
+  it("Shoud return a json respose on the destroy resource", function (done) {
     chai.request(app)
     .delete('/test/1')
-    .end(function (err, res) {
-      expect(res).to.have.status(200);
-      expect(res).to.be.json;
-      expect(res.body.succes).to.be.equal(true);
-      expect(res.body.id).to.be.equal(1);
+    .then(function (res) {
+      chai.expect(res).to.have.status(200);
+      chai.expect(res).to.be.json;
+      chai.expect(res.body.succes).to.be.equal(true);
+      chai.expect(res.body.id).to.be.equal('1');
+      done()
+    }).catch(function(err) {
+      done(new Error(err))
     });
   })
 })

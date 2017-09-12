@@ -13,7 +13,7 @@ npm install stackkit-resource-router
 In nodejs
 ```js
 const express = require('express')
-const app = Express()
+const app = express()
 
 const router = require('stackkit-resource-router')
 
