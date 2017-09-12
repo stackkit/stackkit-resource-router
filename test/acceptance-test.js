@@ -1,7 +1,7 @@
 var chai = require("chai")
 var chaiHttp = require('chai-http')
 var app = require('./server')
-var Promise = require('es6-promise').Promise;
+Promise = require('es6-promise').Promise;
 
 chai.use(chaiHttp)
 
