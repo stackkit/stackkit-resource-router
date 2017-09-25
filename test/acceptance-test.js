@@ -24,6 +24,7 @@ describe("Acceptance test", function () {
       chai.expect(res).to.have.status(200);
       chai.expect(res).to.be.json;
       chai.expect(res.body.succes).to.be.equal(true);
+      chai.expect(res.body.name).to.be.equal('index');
       done()
     }).catch(function (err) {
       done(new Error(err))
@@ -37,6 +38,7 @@ describe("Acceptance test", function () {
       chai.expect(res).to.have.status(200);
       chai.expect(res).to.be.json;
       chai.expect(res.body.succes).to.be.equal(true);
+      chai.expect(res.body.name).to.be.equal('store');
       done()
     }).catch(function (err) {
       done(new Error(err))
@@ -51,6 +53,7 @@ describe("Acceptance test", function () {
       chai.expect(res).to.be.json;
       chai.expect(res.body.succes).to.be.equal(true);
       chai.expect(res.body.id).to.be.equal('1');
+      chai.expect(res.body.name).to.be.equal('show');
       done()
     }).catch(function (err) {
       done(new Error(err))
@@ -65,6 +68,7 @@ describe("Acceptance test", function () {
       chai.expect(res).to.be.json;
       chai.expect(res.body.succes).to.be.equal(true);
       chai.expect(res.body.id).to.be.equal('1');
+      chai.expect(res.body.name).to.be.equal('update');
       done()
     }).catch(function(err) {
       done(new Error(err))
@@ -79,6 +83,7 @@ describe("Acceptance test", function () {
       chai.expect(res).to.be.json;
       chai.expect(res.body.succes).to.be.equal(true);
       chai.expect(res.body.id).to.be.equal('1');
+      chai.expect(res.body.name).to.be.equal('destroy');
       done()
     }).catch(function(err) {
       done(new Error(err))
